@@ -110,14 +110,14 @@
         });
 
         function fetchData() {
-            axios.get('http://10.25.200.21:8000/test_steps')
+            axios.get('http://172.31.202.237:8000/test_steps')
                 .then(response => {
                     const testSteps = response.data;
                     console.log('Data test steps:', testSteps);
                     const tableBody = document.getElementById('stepTableBody');
                     tableBody.innerHTML = '';
 
-                    axios.get('http://10.25.200.21:8000/test_cases')
+                    axios.get('http://172.31.202.237:8000/test_cases')
                         .then(testCasesResponse => {
                             const testCases = testCasesResponse.data;
                             console.log('Data test cases:', testCases);
@@ -157,7 +157,7 @@
         }
 
         function editStep(id) {
-            axios.get(`http://10.25.200.21:8000/test_steps/${id}`)
+            axios.get(`http://172.31.202.237:8000/test_steps/${id}`)
                 .then(response => {
                     const step = response.data;
                     document.getElementById('testCaseId').value = step.test_cases_id;
@@ -184,7 +184,7 @@
                 status: parseInt(document.getElementById('status').value), 
             };
 
-            axios.put(`http://10.25.200.21:8000/test_steps/${editingStepId}`, data)
+            axios.put(`http://172.31.202.237:8000/test_steps/${editingStepId}`, data)
                 .then(response => {
                     fetchData(); 
                     closeModal(); 
@@ -229,7 +229,7 @@
         }
 
         function updateSkenario() {
-            axios.get('http://10.25.200.21:8000/test_cases')
+            axios.get('http://172.31.202.237:8000/test_cases')
                 .then(response => {
                     console.log('Memperbarui status di Skenario');
                 })

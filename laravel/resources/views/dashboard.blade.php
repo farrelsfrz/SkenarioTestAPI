@@ -85,7 +85,7 @@
     <script>
         function updateDashboard() {
             console.log('updateDashboard function called');
-            axios.get('http://10.25.200.21:8000/applications')
+            axios.get('http://172.31.202.237:8000/applications')
                 .then(response => {
                     const applications = response.data;
                     console.log('Data dari API:', applications);

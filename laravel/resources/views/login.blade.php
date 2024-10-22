@@ -31,7 +31,7 @@
 
         console.log('Attempting to login with:', { username, password });
 
-        axios.post('http://10.25.200.21:8000/users/login', { username, password }) 
+        axios.post('http://172.31.202.237:8000/users/login', { username, password }) 
             .then(response => {
                 console.log('Login successful:', response.data);
                 window.location.href = '/dashboard';

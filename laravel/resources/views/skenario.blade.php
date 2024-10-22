@@ -108,7 +108,7 @@
         });
 
         function fetchData() {
-            axios.get('http://10.25.200.21:8000/test_cases')
+            axios.get('http://172.31.202.237:8000/test_cases')
                 .then(response => {
                     console.log('Data yang diterima:', response.data);
                     const testCases = response.data;
@@ -152,7 +152,7 @@
 
         function editMenu(id) {
             console.log('Editing menu with ID:', id);
-            axios.get(`http://10.25.200.21:8000/test_cases/${id}`)
+            axios.get(`http://172.31.202.237:8000/test_cases/${id}`)
                 .then(response => {
                     const testCase = response.data;
                     document.getElementById('applicationId').value = testCase.application_id; 
@@ -190,7 +190,7 @@ function saveMenu() {
     console.log('Data yang akan dikirim:', data);
 
     if (editingMenuId) {
-        axios.put(`http://10.25.200.21:8000/test_cases/${editingMenuId}`, data)
+        axios.put(`http://172.31.202.237:8000/test_cases/${editingMenuId}`, data)
             .then(response => {
                 console.log('Data updated successfully:', response.data);
                 fetchData(); 
@@ -201,7 +201,7 @@ function saveMenu() {
                 alert('Gagal memperbarui data: ' + (error.response ? error.response.data.message : 'Kesalahan tidak diketahui'));
             });
     } else {
-        axios.post('http://10.25.200.21:8000/test_cases', data, {
+        axios.post('http://172.31.202.237:8000/test_cases', data, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -233,7 +233,7 @@ function saveMenu() {
             if (confirm('Apakah Anda yakin ingin menghapus item ini?')) {
                 const row = button.closest('tr');
                 const id = row.cells[1].innerText; 
-                axios.delete(`http://10.25.200.21:8000/test_cases/${id}`)
+                axios.delete(`http://172.31.202.237:8000/test_cases/${id}`)
                     .then(response => {
                         row.remove();   
                         fetchData();    
